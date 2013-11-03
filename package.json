@@ -1,0 +1,24 @@
+{
+	"name": "express-route-printer",
+	"description": "Print a neat, colorized listing of registered ExpressJS routes",
+	"version": "1.0.0",
+	"author": {
+		"name": "Ben Chociej",
+		"email": "me@benchociej.com"
+	},
+	"keywords": [
+		"express",
+		"expressjs",
+		"routes",
+		"print"
+	],
+	"dependencies": {
+		"colors": "*"
+	},
+	"devDependencies": {},
+	"main": "./index.js",
+	"repository": {
+		"type": "git",
+		"url": "git://github.com/bchociej/express-route-printer.git"
+	}
+}
