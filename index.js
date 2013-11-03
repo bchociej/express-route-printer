@@ -6,14 +6,17 @@
 	require('colors');
 
 	module.exports = function(app, logger) {
+		if(typeof logger === 'undefined' && typeof console !== 'undefined') {
+			logger = console;
+		}
+
 		var log = (function(l) {
 			if(typeof l.info === 'function') {
 				return l.info;
 			} else if(typeof l.log === 'function') {
 				return l.log;
 			} else {
-				console.log('Warning: unfamiliar logger encountered; using console.log'.red);
-				return function(x) { console.log(x); };
+				throw new Error("I can't figure out how to log to that logger!");
 			}
 		})(logger);
 

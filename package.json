@@ -1,7 +1,7 @@
 {
 	"name": "express-route-printer",
 	"description": "Print a neat, colorized listing of registered ExpressJS routes",
-	"version": "1.0.0",
+	"version": "1.0.1",
 	"author": {
 		"name": "Ben Chociej",
 		"email": "me@benchociej.com"
