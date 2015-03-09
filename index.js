@@ -34,7 +34,22 @@
 
 		log('ExpressJS routes (' + 'strings'.cyan + ' ' + 'regexes'.yellow + ')');
 
-		var r = app.routes;
-		([r.get, r.post, r.put, r['delete'], r.head, r.options, r.trace]).forEach(printRoutes);
+		if(app.routes) {
+			var r = app.routes;
+			([r.get, r.post, r.put, r['delete'], r.head, r.options, r.trace]).forEach(printRoutes);
+		} else if(app._router && app._router.stack) {
+			app._router.stack
+				.filter(function(r) { return r.route && r.route.path && r.route.methods; })
+				.forEach(function(r) {
+					printRoutes(Object.keys(r.route.methods).map(function(method) {
+						return {
+							method: method,
+							path: r.route.path
+						};
+					}));
+				});
+		} else {
+			log('Your app doesn\'t look familiar to me, I cannot print its routes.');
+		}
 	};
 })(module);
